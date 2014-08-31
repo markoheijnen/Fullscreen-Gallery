@@ -55,4 +55,4 @@ class Fullscreen_gallery {
 
 }
 
-new Fullscreen_gallery();
+$_GLOBALS['fullscreen_gallery'] = new Fullscreen_gallery();
