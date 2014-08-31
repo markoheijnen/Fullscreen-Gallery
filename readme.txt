@@ -1,7 +1,7 @@
 === Fullscreen Gallery ===
 Contributors: CodeKitchen, markoheijnen
 Tags: gallery, post
-Requires at least: 3.4
+Requires at least: 3.6
 Tested up to: 4.0
 Stable tag: 0.1
 
