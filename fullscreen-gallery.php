@@ -10,8 +10,9 @@
  */
 
 class Fullscreen_gallery {
-	private static $config = array(
+	public static $config = array(
 		'fullscreen' => true,
+		'mobile'     => true,
 	);
 
 	public function __construct() {
@@ -50,6 +51,10 @@ class Fullscreen_gallery {
 
 
 	public function add_superslides() {
+		if ( Fullscreen_gallery::$config['mobile'] ) {
+			wp_enqueue_script( 'hammer', plugins_url( 'js/hammer.min.js', __FILE__ ), array(), '2.0.2' );
+		}
+
 		wp_enqueue_style( 'superslides', plugins_url( 'css/superslides.css', __FILE__ ), array(), '0.6.2' );
 		wp_enqueue_script( 'superslides', plugins_url( 'js/jquery.superslides.min.js', __FILE__ ), array( 'jquery' ), '0.6.2' );
 	}

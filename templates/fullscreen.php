@@ -18,6 +18,16 @@
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
 				var $slides = $('#slides');
+				<?php if ( Fullscreen_gallery::$config['mobile'] ) { ?>
+
+				Hammer($slides[0]).on("swipeleft", function(e) {
+					$slides.data('superslides').animate('next');
+				});
+
+				Hammer($slides[0]).on("swiperight", function(e) {
+					$slides.data('superslides').animate('prev');
+				});
+				<?php } ?>
 
 				$slides.superslides(
 					<?php echo json_encode( Fullscreen_gallery::get_slider_args() ); ?>
