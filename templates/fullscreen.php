@@ -4,6 +4,8 @@
 	$image_ids = Fullscreen_gallery::get_images();
 ?>
 
+		<a href="<?php the_permalink(); ?>" class="fullscreen-button"><?php _e( 'Back', 'fullscreen-gallery' ); ?></a>
+
 		<div id="slides">
 			<div class="slides-container">
 
