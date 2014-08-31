@@ -114,6 +114,8 @@ class Fullscreen_gallery {
 			'scrollable' => false,
 			'hashchange' => true
 		);
+
+		return apply_filters( 'fullscreen_gallery_slider_args', $slider_args );
 	}
 
 }

@@ -17,8 +17,11 @@
 
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
-				$('#slides').superslides(
-					<?php json_encode( Fullscreen_gallery::get_slider_args() ); ?>
+				var $slides = $('#slides');
+
+				$slides.superslides(
+					<?php echo json_encode( Fullscreen_gallery::get_slider_args() ); ?>
+
 				)
 			});
 		</script>
