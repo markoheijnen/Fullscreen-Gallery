@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Fullscreen Gallery
- * Plugin URI: 
- * Description: 
+ * Plugin URI: https://github.com/markoheijnen/Fullscreen-Gallery
+ * Description: A simple plugin that adds a fullscreen endpoint to display the gallery images
  * Version: 0.1
  * Author: Felipe Sere & Marko Heijnen
- * Author URI: http://URI_Of_The_Plugin_Author
+ * Author URI: http://markoheijnen.com
  * License: MIT
  */
 
