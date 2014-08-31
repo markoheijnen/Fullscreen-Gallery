@@ -28,28 +28,21 @@ class Fullscreen_gallery {
 
 
 	public function hide_admin_bar() {
-		global $wp_query;
- 
-		// if this is not a request for json or a singular object then bail
-		if ( ! isset( $wp_query->query_vars['fullscreen'] ) || ! is_singular() ) {
-			return $template;
+		// if this is not a request for fullscreen
+		if ( ! isset( $GLOBALS['wp_query']->query_vars['fullscreen'] ) || ! is_singular() ) {
+			return;
 		}
 
 		add_filter( 'show_admin_bar', '__return_false' );
 	}
 
 	public function makeplugins_fullscreen_template_redirect( $template ) {
-		global $wp_query;
- 
-		// if this is not a request for json or a singular object then bail
-		if ( ! isset( $wp_query->query_vars['fullscreen'] ) || ! is_singular() ) {
+		// if this is not a request for fullscreen
+		if ( ! isset( $GLOBALS['wp_query']->query_vars['fullscreen'] ) || ! is_singular() ) {
 			return $template;
 		}
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_superslides' ) );
-
-		//remove_all_filters('post_gallery');
-		add_filter( 'post_gallery', array( $this, 'unset_gallery_filters' ), 0 );
  
 		// include custom template
 		return dirname( __FILE__ ) . '/templates/fullscreen.php';
@@ -59,15 +52,6 @@ class Fullscreen_gallery {
 	public function add_superslides() {
 		wp_enqueue_style( 'superslides', plugins_url( 'css/superslides.css', __FILE__ ), array(), '0.6.2' );
 		wp_enqueue_script( 'superslides', plugins_url( 'js/jquery.superslides.min.js', __FILE__ ), array( 'jquery' ), '0.6.2' );
-	}
-
-	public function unset_gallery_filters( $gallery ) {
-		if ( class_exists('Avid_Gallery') ) {
-			$avid_gallery = Avid_Gallery::instance();
-			remove_filter('post_gallery', array( $avid_gallery, 'hide_first_gallery_shortcode_instance' ) );
-		}
-
-		return $gallery;
 	}
 
 
@@ -115,6 +99,23 @@ class Fullscreen_gallery {
 		echo '<!--fullscreen-gallery-->';
 	}
 
+
+	public static function get_images() {
+		$post      = get_post();
+		$images    = get_post_galleries( $post, false );
+		$image_ids = wp_list_pluck( $images, 'ids' );
+
+		return explode( ',', $image_ids[0] );
+	}
+
+	public static function get_slider_args() {
+		$slider_args = array(
+			'animation'  => 'slide',
+			'scrollable' => false,
+			'hashchange' => true
+		);
+	}
+
 }
 
-$_GLOBALS['fullscreen_gallery'] = new Fullscreen_gallery();
+$GLOBALS['fullscreen_gallery'] = new Fullscreen_gallery();

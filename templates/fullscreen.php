@@ -1,10 +1,7 @@
 <?php
 	Fullscreen_gallery::get_header();
 
-	$post      = get_post();
-	$images    = get_post_galleries( $post, false );
-	$image_ids = wp_list_pluck( $images,'ids' );
-	$image_ids = explode(",", $image_ids[0]);
+	$image_ids = Fullscreen_gallery::get_images();
 ?>
 
 		<div id="slides">
@@ -20,11 +17,9 @@
 
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
-				$('#slides').superslides({
-					animation: "slide",
-					scrollable: false,
-					hashchange: true
-				})
+				$('#slides').superslides(
+					<?php json_encode( Fullscreen_gallery::get_slider_args() ); ?>
+				)
 			});
 		</script>
 
