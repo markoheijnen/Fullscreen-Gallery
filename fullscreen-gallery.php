@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/markoheijnen/Fullscreen-Gallery
  * Description: A simple plugin that adds a fullscreen endpoint to display the gallery images
  * Version: 0.1
- * Author: Felipe Sere & Marko Heijnen
+ * Author: Marko Heijnen & Felipe Sere
  * Author URI: http://markoheijnen.com
  * License: MIT
  */

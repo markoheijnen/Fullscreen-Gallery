@@ -1,6 +1,6 @@
 === Fullscreen Gallery ===
-Contributors: CodeKitchen, markoheijnen
-Tags: gallery, post
+Contributors: CodeKitchen, markoheijnen, Felipe Sere
+Tags: gallery, post, fullscreen
 Requires at least: 3.6
 Tested up to: 4.0
 Stable tag: 0.1
@@ -9,7 +9,9 @@ A simple plugin that adds a fullscreen endpoint to display the gallery images
 
 == Description ==
 
-A simple plugin that adds a fullscreen endpoint to display the gallery images
+A simple plugin that adds a fullscreen endpoint to display the gallery images.
+
+A demo can be seen at https://fesere.de/.
 
 == Installation ==
 
