@@ -13,12 +13,15 @@ class Fullscreen_gallery {
 	public static $config = array(
 		'fullscreen' => true,
 		'mobile'     => true,
+		'template'   => 'default',
 	);
 
 	public function __construct() {
 		add_action( 'init', array( $this, 'add_fullscreen_endpoint' ) );
 
 		add_filter( 'template_redirect', array( $this, 'add_hooks' ), -1 );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 	}
 
 
@@ -34,24 +37,19 @@ class Fullscreen_gallery {
 		}
 
 		add_filter( 'show_admin_bar', '__return_false' );
-		add_filter( 'template_include', array( $this, 'template_include' ) );
-	}
 
-	public function template_include( $template ) {
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_superslides' ) );
- 
-		// include custom template
-		return dirname( __FILE__ ) . '/templates/fullscreen.php';
-	}
+		$folder = dirname( __FILE__ ) . '/templates/';
 
-
-	public function add_superslides() {
-		if ( Fullscreen_gallery::$config['mobile'] ) {
-			wp_enqueue_script( 'hammer', plugins_url( 'js/hammer.min.js', __FILE__ ), array(), '2.0.2' );
+		if ( is_file( $folder . self::$config['template'] . '/index.php' ) ) {
+			include $folder . self::$config['template'] . '/index.php';
 		}
+		else {
+			include $folder . 'default/index.php';
+		}
+	}
 
-		wp_enqueue_style( 'superslides', plugins_url( 'css/superslides.css', __FILE__ ), array(), '0.6.2' );
-		wp_enqueue_script( 'superslides', plugins_url( 'js/jquery.superslides.min.js', __FILE__ ), array( 'jquery' ), '0.6.2' );
+	public function register_scripts() {
+		wp_register_script( 'hammer', plugins_url( 'js/hammer.min.js', __FILE__ ), array(), '2.0.2' );
 	}
 
 
