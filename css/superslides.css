@@ -1,3 +1,7 @@
+html {
+	border: 0px;
+}
+
 #slides {
 	position: relative;
 }

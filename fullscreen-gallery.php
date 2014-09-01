@@ -69,11 +69,7 @@ class Fullscreen_gallery {
 
 		$elements = explode( '</head>', $header );
 
-		$header  = $elements[0];
-		$header .= '<style>html { border: 0px;}</style/>';
-		$header .= '</head>';
-
-		echo $header;
+		echo $elements[0] . PHP_EOL . '</head>';
 	}
 
 	public static function get_footer() {
