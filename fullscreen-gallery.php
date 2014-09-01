@@ -16,14 +16,14 @@ class Fullscreen_gallery {
 	);
 
 	public function __construct() {
-		add_action( 'init', array( $this, 'makeplugins_add_fullscreen_endpoint' ) );
+		add_action( 'init', array( $this, 'add_fullscreen_endpoint' ) );
 
 		add_filter( 'template_redirect', array( $this, 'hide_admin_bar' ), -1 );
-		add_filter( 'template_include', array( $this, 'makeplugins_fullscreen_template_redirect' ), 0 );
+		add_filter( 'template_include', array( $this, 'template_include' ), 0 );
 	}
 
 
-	public function makeplugins_add_fullscreen_endpoint() {
+	public function add_fullscreen_endpoint() {
 		add_rewrite_endpoint( 'fullscreen', EP_PERMALINK );
 	}
 
@@ -37,7 +37,7 @@ class Fullscreen_gallery {
 		add_filter( 'show_admin_bar', '__return_false' );
 	}
 
-	public function makeplugins_fullscreen_template_redirect( $template ) {
+	public function template_include( $template ) {
 		// if this is not a request for fullscreen
 		if ( ! isset( $GLOBALS['wp_query']->query_vars['fullscreen'] ) || ! is_singular() ) {
 			return $template;
