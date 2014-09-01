@@ -18,8 +18,7 @@ class Fullscreen_gallery {
 	public function __construct() {
 		add_action( 'init', array( $this, 'add_fullscreen_endpoint' ) );
 
-		add_filter( 'template_redirect', array( $this, 'hide_admin_bar' ), -1 );
-		add_filter( 'template_include', array( $this, 'template_include' ), 0 );
+		add_filter( 'template_redirect', array( $this, 'add_hooks' ), -1 );
 	}
 
 
@@ -28,21 +27,17 @@ class Fullscreen_gallery {
 	}
 
 
-	public function hide_admin_bar() {
+	public function add_hooks() {
 		// if this is not a request for fullscreen
 		if ( ! isset( $GLOBALS['wp_query']->query_vars['fullscreen'] ) || ! is_singular() ) {
 			return;
 		}
 
 		add_filter( 'show_admin_bar', '__return_false' );
+		add_filter( 'template_include', array( $this, 'template_include' ) );
 	}
 
 	public function template_include( $template ) {
-		// if this is not a request for fullscreen
-		if ( ! isset( $GLOBALS['wp_query']->query_vars['fullscreen'] ) || ! is_singular() ) {
-			return $template;
-		}
-
 		add_action( 'wp_enqueue_scripts', array( $this, 'add_superslides' ) );
  
 		// include custom template
