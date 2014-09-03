@@ -9,9 +9,9 @@ A simple plugin that adds a fullscreen endpoint to display the gallery images
 
 == Description ==
 
-A simple plugin that adds a fullscreen endpoint to display the gallery images.
+At this moment it only adds a gallery endpoint to posts with only one theme. In the next couple of weeks I will be looking at more solutions and build themes around those. I will then also start building a settings page where you can select what the default theme is and build a metabox where you can select per post what the options should be.
 
-A demo can be seen at https://fesere.de/.
+A demo can be seen at https://fesere.de/. If you go to https://fesere.de/african-wildlife/ you see it's a gallery provided by the theme and gets extended by this plugin. So when you go to https://fesere.de/african-wildlife/?fullscreen you see the same images but without the rest of the site. The plugin is so build that it should easily integrate in your existing theme.
 
 == Installation ==
 
@@ -29,5 +29,5 @@ Nothing yet
 
 == Changelog ==
 
-= 0.1.0 ( 2014-09 ) =
+= 0.1.0 ( 2014-09-04 ) =
 * First version 
