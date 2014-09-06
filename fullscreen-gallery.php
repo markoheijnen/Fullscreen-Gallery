@@ -9,6 +9,12 @@
  * License: GPL
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	header('Status: 403 Forbidden');
+	header('HTTP/1.1 403 Forbidden');
+	die();
+}
+
 class Fullscreen_gallery {
 	public static $config = array(
 		'fullscreen' => true,

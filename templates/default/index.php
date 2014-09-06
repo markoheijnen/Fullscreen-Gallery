@@ -1,5 +1,11 @@
 <?php
 class Fullscreen_gallery_Template_Default {
+if ( ! defined( 'ABSPATH' ) ) {
+	header('Status: 403 Forbidden');
+	header('HTTP/1.1 403 Forbidden');
+	die();
+}
+
 
 	public function __construct() {
 		add_filter( 'template_include', array( $this, 'template_include' ) );
