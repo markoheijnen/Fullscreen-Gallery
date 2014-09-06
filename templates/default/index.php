@@ -1,11 +1,11 @@
 <?php
-class Fullscreen_gallery_Template_Default {
 if ( ! defined( 'ABSPATH' ) ) {
 	header('Status: 403 Forbidden');
 	header('HTTP/1.1 403 Forbidden');
 	die();
 }
 
+class Fullscreen_gallery_Template_Superslides {
 
 	public function __construct() {
 		add_filter( 'template_include', array( $this, 'template_include' ) );
@@ -25,6 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		wp_enqueue_style( 'superslides', plugins_url( 'assets/superslides.css', __FILE__ ), array(), '0.6.2' );
 		wp_enqueue_script( 'superslides', plugins_url( 'assets/jquery.superslides.min.js', __FILE__ ), array( 'jquery' ), '0.6.2' );
 	}
+
 }
 
-new Fullscreen_gallery_Template_Default;
+new Fullscreen_gallery_Template_Superslides;
