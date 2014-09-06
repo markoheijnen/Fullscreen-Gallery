@@ -27,7 +27,7 @@ class Fullscreen_gallery {
 	public function __construct() {
 		add_action( 'init', array( $this, 'add_fullscreen_endpoint' ) );
 
-		add_filter( 'template_redirect', array( $this, 'add_hooks' ), -1 );
+		add_filter( 'template_redirect', array( $this, 'load' ), -1 );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 	}
@@ -38,7 +38,7 @@ class Fullscreen_gallery {
 	}
 
 
-	public function add_hooks() {
+	public function load() {
 		// if this is not a request for fullscreen
 		if ( ! isset( $GLOBALS['wp_query']->query_vars['fullscreen'] ) || ! is_singular() ) {
 			return;

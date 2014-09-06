@@ -34,6 +34,8 @@ Nothing yet
 = 0.2.0 ( 2014-09-07 ) =
 * Ability to hide the back button
 * Ability to change the image size
+* Add 'fullscreen_gallery_args' filter
+* Fix glitches in configuration
 
 = 0.1.0 ( 2014-09-04 ) =
 * First version 
