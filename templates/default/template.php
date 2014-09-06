@@ -9,7 +9,7 @@
 
 				<?php
 				foreach ( $image_ids as $image_id ) {
-					echo wp_get_attachment_image( $image_id, 'large' ) . PHP_EOL . PHP_EOL;
+					echo wp_get_attachment_image( $image_id, Fullscreen_gallery::$config['image_size'] ) . PHP_EOL . PHP_EOL;
 				}
 				?>
 			</div>

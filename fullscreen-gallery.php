@@ -21,6 +21,7 @@ class Fullscreen_gallery {
 		'mobile'      => true,
 		'back_button' => true,
 		'template'    => 'default',
+		'image_size'  => 'large',
 	);
 
 	public function __construct() {
