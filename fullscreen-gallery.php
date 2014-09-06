@@ -83,7 +83,7 @@ class Fullscreen_gallery {
 			echo '<body class="' . join( ' ', get_body_class() ) . '">' . PHP_EOL;
 		}
 
-		if ( self::$config['back_button'] ) {
+		if ( self::$config['back_button'] && self::$config['fullscreen']  ) {
 			echo '<a href="' . get_permalink() . '" class="fullscreen-button">' . __( 'Back', 'fullscreen-gallery' ) . '</a>';
 		}
 	}
