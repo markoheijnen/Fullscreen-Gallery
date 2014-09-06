@@ -6,7 +6,7 @@
  * Version: 0.1
  * Author: Marko Heijnen & Felipe Sere
  * Author URI: http://markoheijnen.com
- * License: MIT
+ * License: GPL
  */
 
 class Fullscreen_gallery {
