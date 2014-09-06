@@ -17,9 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Fullscreen_gallery {
 	public static $config = array(
-		'fullscreen' => true,
-		'mobile'     => true,
-		'template'   => 'default',
+		'fullscreen'  => true,
+		'mobile'      => true,
+		'back_button' => true,
+		'template'    => 'default',
 	);
 
 	public function __construct() {
@@ -62,20 +63,24 @@ class Fullscreen_gallery {
 	public static function get_header() {
 		if ( ! self::$config['fullscreen'] ) {
 			get_header();
-			return;
+		}
+		else {
+			ob_start();
+			get_header();
+			$header = ob_get_contents();
+
+			ob_end_clean();
+
+			$elements = explode( '</head>', $header );
+
+			echo $elements[0] . PHP_EOL . '</head>' . PHP_EOL;
+
+			echo '<body class="' . join( ' ', get_body_class() ) . '">' . PHP_EOL;
 		}
 
-		ob_start();
-		get_header();
-		$header = ob_get_contents();
-
-		ob_end_clean();
-
-		$elements = explode( '</head>', $header );
-
-		echo $elements[0] . PHP_EOL . '</head>' . PHP_EOL;
-
-		echo '<body class="' . join( ' ', get_body_class() ) . '">' . PHP_EOL;
+		if ( self::$config['back_button'] ) {
+			echo '<a href="' . get_permalink() . '" class="fullscreen-button">' . __( 'Back', 'fullscreen-gallery' ) . '</a>';
+		}
 	}
 
 	public static function get_footer() {
