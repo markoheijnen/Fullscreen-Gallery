@@ -45,6 +45,8 @@ class Fullscreen_gallery {
 		}
 
 		add_filter( 'show_admin_bar', '__return_false' );
+		self::$config = apply_filters( 'fullscreen_gallery_args', self::$config, get_the_ID() );
+
 
 		$folder = dirname( __FILE__ ) . '/templates/';
 
