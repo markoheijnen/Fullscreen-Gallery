@@ -1,7 +1,8 @@
 <?php
 	Fullscreen_gallery::get_header();
 
-	$image_ids = Fullscreen_gallery::get_images();
+	$slider_args = Fullscreen_gallery::get_slider_args();
+	$image_ids   = Fullscreen_gallery::get_images();
 ?>
 
 		<div id="slides">
@@ -13,6 +14,13 @@
 				}
 				?>
 			</div>
+
+			<?php if ( $slider_args['arrows'] ) { ?>
+			<nav class="slides-navigation">
+				<a href="#" class="next">&gt;</a>
+				<a href="#" class="prev">&lt;</a>
+			</nav>
+			<?php } ?>
 		</div>
 
 		<script type="text/javascript">
@@ -30,7 +38,7 @@
 				<?php } ?>
 
 				$slides.superslides(
-					<?php echo json_encode( Fullscreen_gallery::get_slider_args() ); ?>
+					<?php echo json_encode( $slider_args ); ?>
 
 				)
 			});

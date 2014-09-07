@@ -104,7 +104,9 @@ class Fullscreen_Gallery {
 			'animation'  => 'slide',
 			'scrollable' => false,
 			'hashchange' => true,
-			'pagination' => true
+			'pagination' => true,
+			'arrows'     => false,
+			'play'       => false, // Miliseconds
 		);
 
 		return apply_filters( 'fullscreen_gallery_slider_args', $slider_args, get_the_ID() );
