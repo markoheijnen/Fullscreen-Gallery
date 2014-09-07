@@ -167,8 +167,8 @@ class Fullscreen_Gallery_Admin {
 		}
 
 		echo '<style>';
-		echo '.onoffswitch-inner:before { content: "' . __( 'On', 'sitemanager' ) . '"; }';
-		echo '.onoffswitch-inner:after { content: "' . __( 'Off', 'sitemanager' ) . '"; }';
+		echo '.onoffswitch-inner:before { content: "' . __( 'On', 'fullscreen-gallery' ) . '"; }';
+		echo '.onoffswitch-inner:after { content: "' . __( 'Off', 'fullscreen-gallery' ) . '"; }';
 		echo '.form-table .onoffswitch-label { border-color: ' . $_wp_admin_css_colors[$color]->colors[2] . '; }';
 		echo '.form-table .onoffswitch-inner:before { background-color: ' . $_wp_admin_css_colors[$color]->colors[3] . '; }';
 		echo '.form-table .onoffswitch-switch { background-color: ' . $_wp_admin_css_colors[$color]->colors[2] . '; }';
