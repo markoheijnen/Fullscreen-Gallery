@@ -23,6 +23,7 @@ class Fullscreen_Gallery {
 	public static $config = array(
 		'fullscreen'  => true,
 		'mobile'      => true,
+		'arrows'      => false,
 		'back_button' => true,
 		'template'    => 'superslides',
 		'image_size'  => 'large',
@@ -136,7 +137,6 @@ class Fullscreen_Gallery {
 			'scrollable' => false,
 			'hashchange' => true,
 			'pagination' => true,
-			'arrows'     => false,
 			'play'       => false, // Miliseconds
 		);
 

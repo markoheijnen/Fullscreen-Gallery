@@ -51,6 +51,7 @@ class Fullscreen_Gallery_Admin {
 		$main_config = array(
 			'fullscreen'  => array( 'title' => __( 'Fullscreen', 'fullscreen-gallery' ), 'type' => 'switch_on_off' ),
 			'mobile'      => array( 'title' => __( 'Mobile support', 'fullscreen-gallery' ), 'type' => 'switch_on_off' ),
+			'arrows'      => array( 'title' => __( 'Show arrows', 'fullscreen-gallery' ), 'type' => 'switch_on_off' ),
 			'back_button' => array( 'title' => __( 'Back button', 'fullscreen-gallery' ), 'type' => 'switch_on_off' ),
 			'template'    => array( 'title' => __( 'Template', 'fullscreen-gallery' ), 'type' => 'select', 'options' => Fullscreen_Gallery::get_templates() ),
 			'image_size'  => array( 'title' => __( 'Image size', 'fullscreen-gallery' ), 'type' => 'select', 'options' => get_intermediate_image_sizes() ),

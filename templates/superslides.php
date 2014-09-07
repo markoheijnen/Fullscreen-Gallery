@@ -37,7 +37,7 @@ class Fullscreen_gallery_Template_Superslides extends Fullscreen_Gallery_Templat
 				?>
 			</div>
 
-			<?php if ( $slider_args['arrows'] ) { ?>
+			<?php if ( Fullscreen_gallery::$config['arrows'] ) { ?>
 			<nav class="slides-navigation">
 				<a href="#" class="next">&gt;</a>
 				<a href="#" class="prev">&lt;</a>
