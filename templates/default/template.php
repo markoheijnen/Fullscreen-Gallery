@@ -26,8 +26,8 @@
 		<script type="text/javascript">
 			jQuery(document).ready(function($) {
 				var $slides = $('#slides');
-				<?php if ( Fullscreen_gallery::$config['mobile'] ) { ?>
 
+				<?php if ( Fullscreen_gallery::$config['mobile'] ) { ?>
 				Hammer($slides[0]).on("swipeleft", function(e) {
 					$slides.data('superslides').animate('next');
 				});
