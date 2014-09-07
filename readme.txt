@@ -31,10 +31,14 @@ Nothing yet
 
 == Changelog ==
 
-= 0.2.0 ( 2014-09-07 ) =
+= 0.2.0 ( 2014-09-08 ) =
+* Add settings page
+* Add prev/next button support
 * Ability to hide the back button
 * Ability to change the image size
+* Smoother animation when CSS3 can be used
 * Add 'fullscreen_gallery_args' filter
+* Complete rewrite of template system
 * Fix glitches in configuration
 
 = 0.1.0 ( 2014-09-04 ) =
