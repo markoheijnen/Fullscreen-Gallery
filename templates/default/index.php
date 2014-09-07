@@ -18,12 +18,14 @@ class Fullscreen_gallery_Template_Superslides {
 	}
 
 	public function enqueue_scripts() {
+		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
 		if ( Fullscreen_gallery::$config['mobile'] ) {
 			wp_enqueue_script( 'hammer' );
 		}
 
 		wp_enqueue_style( 'superslides', plugins_url( 'assets/superslides.css', __FILE__ ), array(), '0.6.2' );
-		wp_enqueue_script( 'superslides', plugins_url( 'assets/jquery.superslides.min.js', __FILE__ ), array( 'jquery', 'animate-enhanced' ), '0.6.2' );
+		wp_enqueue_script( 'superslides', plugins_url( 'assets/jquery.superslides' . $suffix . '.js', __FILE__ ), array( 'jquery', 'animate-enhanced' ), '0.6.2' );
 	}
 
 }

@@ -74,8 +74,10 @@ class Fullscreen_Gallery {
 	}
 
 	public function register_scripts() {
-		wp_register_script( 'animate-enhanced', plugins_url( 'js/jquery.animate-enhanced.min.js', __FILE__ ), array('jquery'), '1.11' );
-		wp_register_script( 'hammer', plugins_url( 'js/hammer.min.js', __FILE__ ), array(), '2.0.2' );
+		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
+		wp_register_script( 'animate-enhanced', plugins_url( 'js/jquery.animate-enhanced' . $suffix . '.js', __FILE__ ), array('jquery'), '1.11' );
+		wp_register_script( 'hammer', plugins_url( 'js/hammer' . $suffix . '.js', __FILE__ ), array(), '2.0.2' );
 	}
 
 
