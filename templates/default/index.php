@@ -23,7 +23,7 @@ class Fullscreen_gallery_Template_Superslides {
 		}
 
 		wp_enqueue_style( 'superslides', plugins_url( 'assets/superslides.css', __FILE__ ), array(), '0.6.2' );
-		wp_enqueue_script( 'superslides', plugins_url( 'assets/jquery.superslides.min.js', __FILE__ ), array( 'jquery' ), '0.6.2' );
+		wp_enqueue_script( 'superslides', plugins_url( 'assets/jquery.superslides.min.js', __FILE__ ), array( 'jquery', 'animate-enhanced' ), '0.6.2' );
 	}
 
 }
