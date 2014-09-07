@@ -103,7 +103,8 @@ class Fullscreen_Gallery {
 		$slider_args = array(
 			'animation'  => 'slide',
 			'scrollable' => false,
-			'hashchange' => true
+			'hashchange' => true,
+			'pagination' => true
 		);
 
 		return apply_filters( 'fullscreen_gallery_slider_args', $slider_args, get_the_ID() );
