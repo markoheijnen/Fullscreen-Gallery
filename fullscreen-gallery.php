@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }
 
+include 'inc/frontend.php';
+
 class Fullscreen_Gallery {
 	const version = '0.2-dev';
 
@@ -22,9 +24,11 @@ class Fullscreen_Gallery {
 		'fullscreen'  => true,
 		'mobile'      => true,
 		'back_button' => true,
-		'template'    => 'default',
+		'template'    => 'superslides',
 		'image_size'  => 'large',
 	);
+
+	public static $templates = array();
 
 	public function __construct() {
 		add_action( 'init', array( $this, 'add_fullscreen_endpoint' ) );
@@ -57,20 +61,18 @@ class Fullscreen_Gallery {
 			return;
 		}
 
-		self::$config = apply_filters( 'fullscreen_gallery_args', self::get_config(), get_the_ID() );
-
 		if ( self::$config['fullscreen'] ) {
 			add_filter( 'show_admin_bar', '__return_false' );
 		}
 
-		$folder = dirname( __FILE__ ) . '/templates/';
+		self::$config = apply_filters( 'fullscreen_gallery_args', self::get_config(), get_the_ID() );
 
-		if ( is_file( $folder . self::$config['template'] . '/index.php' ) ) {
-			include $folder . self::$config['template'] . '/index.php';
-		}
-		else {
-			include $folder . 'default/index.php';
-		}
+		add_filter( 'template_include', array( $this, 'template_include' ) );		
+	}
+
+	public function template_include( $template ) {
+		// include custom template
+		return dirname( __FILE__ ) . '/inc/template.php';
 	}
 
 	public function register_scripts() {
@@ -84,7 +86,33 @@ class Fullscreen_Gallery {
 
 
 	public static function get_templates() {
-		return array_map( 'basename', glob( dirname( __FILE__ ) . '/templates/*', GLOB_ONLYDIR ) );
+		$templates = glob( dirname( __FILE__ ) . '/templates/*.php' );
+
+		return array_map(
+			'basename',
+			$templates,
+			array_fill( 0 , count( $templates ) , '.php' )
+		);
+	}
+
+	public static function get_template( $template = false ) {
+		if ( ! isset( self::$templates[ $template ] ) ) {
+			if ( ! $template ) {
+				$template = self::$config['template'];
+			}
+
+			$folder = dirname( __FILE__ ) . '/templates/';
+
+			if ( is_file( $folder . $template . '.php' ) ) {
+				include $folder . $template . '.php';
+			}
+		}
+
+		if ( ! isset( self::$templates[ $template ] ) ) {
+			self::$templates[ $template ] = false;
+		}
+
+		return self::$templates[ $template ];
 	}
 
 	public static function get_config() {
@@ -113,55 +141,6 @@ class Fullscreen_Gallery {
 		);
 
 		return apply_filters( 'fullscreen_gallery_slider_args', $slider_args, get_the_ID() );
-	}
-
-
-
-
-	public static function get_header() {
-		if ( ! self::$config['fullscreen'] ) {
-			get_header();
-		}
-		else {
-			ob_start();
-			get_header();
-			$header = ob_get_contents();
-
-			ob_end_clean();
-
-			$elements = explode( '</head>', $header );
-
-			echo $elements[0] . PHP_EOL . '</head>' . PHP_EOL;
-
-			echo '<body class="' . join( ' ', get_body_class() ) . '">' . PHP_EOL;
-		}
-
-		if ( self::$config['back_button'] && self::$config['fullscreen']  ) {
-			echo '<a href="' . get_permalink() . '" class="fullscreen-button">' . __( 'Back', 'fullscreen-gallery' ) . '</a>';
-		}
-	}
-
-	public static function get_footer() {
-		if ( ! self::$config['fullscreen'] ) {
-			get_footer();
-			return;
-		}
-
-		add_filter( 'wp_footer', array( __CLASS__, 'add_explode_comment' ), 0 );
-
-		ob_start();
-		get_footer();
-		$footer = ob_get_contents();
-
-		ob_end_clean();
-
-		$elements = explode('<!--fullscreen-gallery-->', $footer );
-
-		echo $elements[1];
-	}
-
-	public static function add_explode_comment() {
-		echo '<!--fullscreen-gallery-->';
 	}
 
 }
