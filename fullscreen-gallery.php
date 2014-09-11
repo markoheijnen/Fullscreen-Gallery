@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }
 
-include 'inc/frontend.php';
+include 'inc/template-interface.php';
 
 class Fullscreen_Gallery {
 	const version = '0.2-dev';
