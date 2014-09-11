@@ -76,7 +76,7 @@ class Fullscreen_Gallery {
 	}
 
 	public function add_link_to_gallery_shortcode( $output ) {
-		if ( is_singular() ) {
+		if ( is_singular() && $output ) {
 			$output .= '<a href="' . get_permalink() . '/fullscreen/">' . __( 'Go Fullscreen', 'fullscreen-gallery' ) . '<a/>';
 		}
 
