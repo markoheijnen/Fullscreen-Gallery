@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die();
 }
 
+include 'inc/filter-shortcode.php';
 include 'inc/template-interface.php';
 
 class Fullscreen_Gallery {
@@ -57,6 +58,8 @@ class Fullscreen_Gallery {
 
 
 	public function load() {
+		Fullscreen_Gallery_Filter_Shortcode::add('gallery');
+
 		// if this is not a request for fullscreen
 		if ( ! isset( $GLOBALS['wp_query']->query_vars['fullscreen'] ) || ! is_singular() ) {
 			return;
@@ -68,7 +71,7 @@ class Fullscreen_Gallery {
 
 		self::$config = apply_filters( 'fullscreen_gallery_args', self::get_config(), get_the_ID() );
 
-		add_filter( 'template_include', array( $this, 'template_include' ) );		
+		add_filter( 'template_include', array( $this, 'template_include' ) );
 	}
 
 	public function template_include( $template ) {
