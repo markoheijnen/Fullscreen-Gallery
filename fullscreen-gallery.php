@@ -59,6 +59,7 @@ class Fullscreen_Gallery {
 
 	public function load() {
 		Fullscreen_Gallery_Filter_Shortcode::add('gallery');
+		add_filter( 'fullscreen_gallery_filter_shortcode_gallery', array( $this, 'add_link_to_gallery_shortcode' ) );
 
 		// if this is not a request for fullscreen
 		if ( ! isset( $GLOBALS['wp_query']->query_vars['fullscreen'] ) || ! is_singular() ) {
@@ -72,6 +73,14 @@ class Fullscreen_Gallery {
 		self::$config = apply_filters( 'fullscreen_gallery_args', self::get_config(), get_the_ID() );
 
 		add_filter( 'template_include', array( $this, 'template_include' ) );
+	}
+
+	public function add_link_to_gallery_shortcode( $output ) {
+		if ( is_singular() ) {
+			$output .= '<a href="' . get_permalink() . '/fullscreen/">' . __( 'Go Fullscreen', 'fullscreen-gallery' ) . '<a/>';
+		}
+
+		return $output;
 	}
 
 	public function template_include( $template ) {
