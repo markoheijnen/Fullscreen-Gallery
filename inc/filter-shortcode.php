@@ -43,6 +43,7 @@ class Fullscreen_Gallery_Filter_Shortcode {
 
 		if ( isset( $trace[0]['args'][2] ) && $tag = $trace[0]['args'][2] ) {
 			$output = call_user_func( self::$original_callback[ $tag ], $attr, null, $tag );
+			$output = apply_filters( 'fullscreen_gallery_filter_shortcode_' . $tag , $output, $attr );
 
 			return apply_filters( 'fullscreen_gallery_filter_shortcode', $output, $tag, $attr );
 		}
