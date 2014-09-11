@@ -17,7 +17,7 @@ class Fullscreen_Gallery_Filter_Shortcode {
 
 		self::$original_callback[ $tag ] = $shortcode_tags[ $tag ];
 
-		//add_shortcode( $tag, array( __CLASS__, 'run_shortcode' ) );
+		add_shortcode( $tag, array( __CLASS__, 'run_shortcode' ) );
 	}
 
 	public static function restore( $tag ) {
