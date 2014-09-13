@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gallery, post, fullscreen
 Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 
 A simple plugin that adds a fullscreen endpoint to display the gallery images
@@ -31,7 +31,7 @@ Nothing yet
 
 == Changelog ==
 
-= 0.2.0 ( 2014-09-08 ) =
+= 0.2.0 ( 2014-09-14 ) =
 * Add settings page
 * Add prev/next button support
 * Ability to hide the back button

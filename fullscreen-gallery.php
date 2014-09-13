@@ -3,7 +3,7 @@
  * Plugin Name: Fullscreen Gallery
  * Plugin URI: https://github.com/markoheijnen/Fullscreen-Gallery
  * Description: A simple plugin that adds a fullscreen endpoint to display the gallery images
- * Version: 0.2-dev
+ * Version: 0.2
  * Author: Marko Heijnen & Felipe Sere
  * Author URI: http://markoheijnen.com
  * License: GPL
@@ -19,7 +19,7 @@ include 'inc/filter-shortcode.php';
 include 'inc/template-interface.php';
 
 class Fullscreen_Gallery {
-	const version = '0.2-dev';
+	const version = '0.2';
 
 	public static $config = array(
 		'fullscreen'  => true,
