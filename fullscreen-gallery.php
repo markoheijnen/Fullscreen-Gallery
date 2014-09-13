@@ -113,6 +113,10 @@ class Fullscreen_Gallery {
 			$template = self::$config['template'];
 		}
 
+		if ( 'default' == $template ) {
+			$template = 'superslides';
+		}
+
 		if ( ! isset( self::$templates[ $template ] ) ) {
 			$folder = dirname( __FILE__ ) . '/templates/';
 
