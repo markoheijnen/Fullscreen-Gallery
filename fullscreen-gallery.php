@@ -109,11 +109,11 @@ class Fullscreen_Gallery {
 	}
 
 	public static function get_template( $template = false ) {
-		if ( ! isset( self::$templates[ $template ] ) ) {
-			if ( ! $template ) {
-				$template = self::$config['template'];
-			}
+		if ( ! $template ) {
+			$template = self::$config['template'];
+		}
 
+		if ( ! isset( self::$templates[ $template ] ) ) {
 			$folder = dirname( __FILE__ ) . '/templates/';
 
 			if ( is_file( $folder . $template . '.php' ) ) {
