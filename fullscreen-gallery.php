@@ -1,13 +1,20 @@
 <?php
-/**
- * Plugin Name: Fullscreen Gallery
- * Plugin URI: https://github.com/markoheijnen/Fullscreen-Gallery
- * Description: A simple plugin that adds a fullscreen endpoint to display the gallery images
- * Version: 0.2
- * Author: Marko Heijnen & Felipe Sere
- * Author URI: http://markoheijnen.com
- * License: GPL
- */
+/*
+	Plugin Name: Fullscreen Gallery
+	Description: A simple plugin that adds a fullscreen endpoint to display the gallery images
+	Version: 0.2
+
+	Plugin URI: https://github.com/markoheijnen/Fullscreen-Gallery
+
+	Author: Marko Heijnen & Felipe Sere
+	Author URI: http://markoheijnen.com
+	Donate link: https://markoheijnen.com/donate
+
+	Text Domain: fullscreen-gallery
+	Domain Path: /languages
+
+	License: GPL
+*/
 
 if ( ! defined( 'ABSPATH' ) ) {
 	header('Status: 403 Forbidden');

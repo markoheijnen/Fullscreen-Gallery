@@ -1,9 +1,9 @@
 === Fullscreen Gallery ===
 Contributors: CodeKitchen, markoheijnen, Felipe Seré
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQFB8UMDTEGGG
+Donate link: https://markoheijnen.com/donate
 Tags: gallery, post, fullscreen
 Requires at least: 3.6
-Tested up to: 4.0
+Tested up to: 4.3
 Stable tag: 0.2
 License: GPLv2 or later
 
